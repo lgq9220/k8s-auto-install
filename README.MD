@@ -24,16 +24,16 @@ sed -i "s/192.168.119.212/your_master_centos_ip/g" /root/*.sh
 
 ## master节点安装教程
 
-1. 执行node-kubeadm-init.sh,安装kubernetes 1.12.3环境
+1. 执行node_kubeadm_init.sh,安装kubernetes 1.12.3环境
 
 ```
-sh /root/node-kubeadm-init.sh
+sh /root/node_kubeadm_init.sh
 ```
 
-2. 执行node-kubeadm-install.sh,安装kubernetes-dashboard-1.8.3管理UI
+2. 执行node_kubeadm_install.sh,安装kubernetes-dashboard-1.8.3管理UI
 
 ```
-sh /root/node-kubeadm-install.sh
+sh /root/node_kubeadm_install.sh
 ```
 3. 全部完成后，打开浏览器：访问 ：https://your_centos_ip:30001，使用token登录，token查看方法如下：
 
@@ -43,7 +43,7 @@ sh /root/node-kubeadm-install.sh
 kubectl -n kube-system get secret
 #执行命令，获取指定key的token:
 kubectl -n kube-system describe secret kubernetes-dashboard-admin-token-* #{上条命令输出的结果中复制的类似kubernetes-dashboard-admin-token-skhfh的key字符串到这里替换}
-#复制tokdn数据到登录框内登录即可登录
+#复制token数据到登录框内登录即可登录
 ```
 
 ## -----------------------------------------------------------------------
@@ -78,10 +78,10 @@ sed -i "s/join_token/your_join_token/g" /root/*.sh
 
 ## node节点加入教程
 
-1. 执行node-kubeadm-join.sh,加入新节点
+1. 执行node_kubeadm_join.sh,加入新节点
 
 ```
-sh /root/node-kubeadm-join.sh
+sh /root/node_kubeadm_join.sh
 ```
 3. 全部完成后，打开浏览器：访问 ：https://your_master_centos_ip:30001，查看节点准备情况。节点准备需要一点时间。
 
